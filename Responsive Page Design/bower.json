@@ -1,0 +1,13 @@
+{
+    "name": "CS557_Hw03_Spring2016",
+    "version": "1.0.0",
+    "main": "path/to/main.css",
+    "ignore": [
+        ".jshintrc",
+        "**/*.txt"
+    ],
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+}
