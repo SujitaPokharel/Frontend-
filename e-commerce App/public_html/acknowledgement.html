@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+Student Info: Name=Sujita Pokharel, ID=14105
+Subject: CS557A_HW4_Spring_2016
+Author: Suju
+Filename: acknowledgement.html
+Date and Time: Mar 2, 2016 11:46:53 AM 
+Project Name: CS557_Hw04_Spring2016_images 
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+         <link rel="stylesheet" type="text/css" href="styles.css"/>
+        <link rel="stylesheet" type="text/css" href="layout.css" media="all and (min-width: 481px)" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="acknowledge.js"></script>
+        
+    </head>
+    <body onload="display()">
+         <div>
+            <div id="header">
+            <header>
+                <p>We believe in giving you best appearance to your memories</p>
+            </header>             
+        </div>
+
+        <nav>          
+            <ul id="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="contactUs.html">Contact Us</a></li>
+            </ul>
+        </nav>
+            
+            <div align="center">
+                <h1>Your Order Has been Confirmed !!!</h1>
+                <table>
+                    <tr><td>Order Number</td><td><span id="orderId"></span></td></tr>
+                    <tr><td>First Name</td><td><span id="name"></span></td></tr>
+                    <tr><td>Last Name</td><td><span id="lastnameid"></span></td></tr>
+                    <tr><td>Address</td><td><span id="address"></span></td></tr>
+                    <tr><td>Phone Number</td><td><span id="phonenum"></span></td></tr>
+                    <tr><td>Items</td><td><script type="text/javascript">display_data();</script></td></tr>
+                    <tr><td>Total Cost</td><td><span id="total"></span></td></tr>
+                </table>
+              
+            </div>
+            <div id="footer">
+            <p ><b>&copy; Digital Photo Company 2015-2016</b></p>
+        </div>
+             </div>
+    </body>
+</html>

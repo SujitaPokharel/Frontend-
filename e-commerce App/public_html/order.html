@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+Student Info: Name=Sujita Pokharel, ID=14105
+Subject: CS557A_HW4_Spring_2016
+Author: Suju
+Filename: order.html
+Date and Time: Mar 1, 2016 3:41:37 PM 
+Project Name: CS557_Hw04_Spring2016_images
+-->
+<html>
+    <head>
+        <title>order items</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+        <link rel="stylesheet" type="text/css" href="layout.css" media="all and (min-width: 481px)" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="order.js"></script>
+    </head>
+    <body class="order">
+        <div id="header">
+            <header>
+                <p>We believe in giving you best appearance to your memories</p>
+            </header>             
+        </div>
+
+        <nav>          
+            <ul id="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="contactUs.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        
+        <div  id="page">
+            <form name="orderForm" id="orderForm" action="shoppingcart.html" method="GET" >
+                <table>
+                    <tr>
+
+                        <td><label for="quality">Quality of Images</label></td>
+                        <td>
+                            <select id="quality">
+                                <option value="good">Good</option>
+                                <option value="vgood">Very Good</option>
+                                <option value="excellent">Excellent</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                    <div>
+                        <fieldset>
+                            <td><legend>Types of Items</legend></td>
+                            <td>
+                                <input type="radio" id="1"  name="Item" value="hardcopyprint" checked>
+                                <label for="1">Hard Copy Print</label>
+                                <input type="radio" id="2" name="Item" value="poster">
+                                <label for="2">Posters</label>
+                                <input type="radio" id="3" name="Item" value="coffee-mugs">
+                                <label for="3">Coffee Mugs</label>
+                                <input type="radio" id="4"  name="Item" value="t-shirt">
+                                <label for="4">T-Shirts</label>
+                            </td>
+                        </fieldset>
+                    </div>
+                    </tr>
+                    <tr><td>Glossy finish</td>
+                        <td><input type="checkbox" id="glossy" name="glossy" value="" ></td>
+                    </tr>
+                    <tr><td>Quantity</td>
+                        <td><input type="number" value="" name="quantity" id="quantity" ><span id="quantityid" style="color: red"></span></td>
+                    </tr>
+                    <tr><td>Calculate</td>
+                        <td><input type="button" name="calculateCost" value="Calculate" onclick="calculate()"></td>
+                    </tr>
+                    <tr><td></td>
+                        <td><input type="button" name="AddCart" value="Add to Cart" onclick="store()"></td>
+                    </tr>
+                    <tr><td></td>
+                        <td><input type="button" name="GoCart" value="Go to cart" onclick="window.location.href = 'shoppingcart.html';"></td>
+                    </tr>
+                    <tr><td>Cost of Selected Items</td>
+                        <td><input type="text" id="costOfItems" name="Cost" value="" readonly="">
+                            <strong id="date" ></strong>
+                        </td>
+
+                    </tr>
+                    
+                    <tr><td></td>
+                        
+                        <td><input type="reset" name="reset" value="Clear" onclick="clearLocalStorage()"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+         
+        <div id="footer">
+            <p ><b>&copy; Digital Photo Company 2015-2016</b></p>
+        </div>
+    </body>
+</html>

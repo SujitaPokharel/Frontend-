@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!--
+Student Info: Name=Sujita Pokharel, ID=14105
+Subject: CS557A_HW4_Spring_2016
+Author: Suju
+Filename: shoppingcart.html
+Date and Time: Mar 2, 2016 11:26:45 AM 
+Project Name: CS557_Hw04_Spring2016_images 
+-->
+<html>
+    <head>
+        <title>view your cart</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+        <link rel="stylesheet" type="text/css" href="layout.css" media="all and (min-width: 481px)" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script>
+            var price = [8.99, 10.99, 9.99, 11.99, 10.99, 12.99, 9.99, 11.99, 10.99, 12.99, 11.99, 13.99
+                        , 10.99, 12.99, 11.99, 13.99, 12.99, 14.99, 11.99, 13.99, 12.99, 14.99, 13.99, 15.99];
+            var totalCost = 0;
+            var display = [
+                "Hard Copy (Good)",
+                "Hard Copy (Good Glossy)",
+                "Hard Copy (veryGood)",
+                "Hard Copy (veryGood Glossy)",
+                "Hard Copy (Excellent)",
+                "Hard Copy (Excellent Glossy)",
+                "Poster (Good)",
+                "Poster (Good Glossy)",
+                "Poster (veryGood)",
+                "Poster (veryGood Glossy)",
+                "Poster (Excellent)",
+                "Poster (Excellent Glossy)",
+                "Coffee-mug (Good)",
+                "Coffee-mug (Good Glossy)",
+                "Coffee-mug (veryGood)",
+                "Coffee-mug (veryGood Glossy)",
+                "Coffee-mug (Excellent)",
+                "Coffee-mug (Excellent Glossy)",
+                "T-shirt (Good)",
+                "T-shirt (Good Glossy)",
+                "T-shirt (veryGood)",
+                "T-shirt (veryGood Glossy)",
+                "T-shirt (Excellent)",
+                "T-shirt (Excellent Glossy)"];
+            function display_data() {
+                var cost = 0.00;
+                var selListId = document.getElementById('cartItems');
+                var quantity = 0;
+                for (var i = 1; i <= 24; i++) {
+                    var option = document.createElement('option');
+                    cost = 0.00;
+
+                    if (localStorage.getItem(i)) {
+                        quantity = localStorage.getItem(i);
+                        cost = (price[i - 1] * quantity);
+                        option.value = i;
+                        option.text = "Item: " + display[i - 1] + " Quantity:" + quantity + " Cost: " + parseFloat(cost).toFixed(2);
+                        selListId.add(option);
+                        totalCost = totalCost + cost;
+
+                    } else {
+                        //console.log("localStorage doesn't have "+i);
+                    }
+                    localStorage.setItem("Total", parseFloat(totalCost).toFixed(2));
+
+                }
+            }
+
+            function removeOption(list)
+            {
+
+                var elSelect = document.getElementById('cartItems');
+                for (var i = 0; i < elSelect.length; i++) {
+                    if (elSelect.options[i].selected)
+                    {
+
+                        var itemIndex = elSelect.selectedIndex;
+                        var itemOptionIndex = elSelect.options[i].value;
+                        var itemText = elSelect.options[i].text;
+                        var Cindex = itemText.substring(itemText.lastIndexOf('C') + 5);
+                        var newCost = localStorage.getItem("Total") - parseFloat(Cindex);
+                        localStorage.setItem("Total", parseFloat(newCost).toFixed(2));
+                        localStorage.removeItem(itemOptionIndex);
+                        elSelect.remove(itemIndex);
+                    }
+                }
+
+            }
+
+
+
+        </script>
+    </head>
+    <body onload='display_data();'>
+
+
+        <div>
+            <div id="header">
+                <header>
+                    <p>We believe in giving you best appearance to your memories</p>
+                </header>             
+            </div>
+
+            <nav>          
+                <ul id="navigation">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="order.html">Order</a></li>
+                    <li><a href="contactUs.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div>
+                <h1 align='center'>Shopping Cart</h1>
+            </div>
+            <div align='center'>
+                <form name='form' action='' method="post" >
+
+                    <select id='cartItems' multiple='' size="5" style="width: 80%;alignment-adjust:middle;text-align: center"> </select>
+                    <br/>
+                     <br/>
+                    <input type="button" id="remove" name="remove" value="Remove" onclick="removeOption(this.form.cartItems)" > <br>              
+                      <br/>
+                    <input type="button" id="order" name="order" value="Go to Order" onclick="window.location.href = 'order.html'"><br>
+                     <br/>
+                    <input type="button" id="checkout" name="checkout" value="Checkout" onclick="window.location.href = 'checkout.html'"><br>
+
+                </form>
+
+
+            </div>
+            <br/>
+             <br/>
+            <div id="footer">
+                <p ><b>&copy; Digital Photo Company 2015-2016</b></p>
+            </div>
+        </div>
+
+
+    </body>
+</html>
