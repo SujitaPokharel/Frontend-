@@ -1,0 +1,8 @@
+{
+    "name": "CS557_Hw01_Spring2016",
+    "version": "1.0.0",
+    "keywords": ["util", "functional", "server", "client", "browser"],
+    "author": "Suju",
+    "contributors": [],
+    "dependencies": {}
+}
