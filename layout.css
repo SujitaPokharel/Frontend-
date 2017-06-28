@@ -1,0 +1,25 @@
+/*
+Student Info: Name=Sujita Pokharel, ID=14105
+Subject: CS557A_HW3_Spring_2016
+Author: Suju
+Filename: layout.css
+Date and Time: Feb 14, 2016 8:16:28 PM 
+Project Name: CS557_Hw03_Spring2016 
+*/
+/* 
+    Created on : Feb 14, 2016, 8:16:28 PM
+    Author     : Suju
+*/
+#onphoto {
+    width: 45%;
+    float: right;
+    margin: 10px 0 0 0;
+}
+.column {
+    margin: 10px 1% 0 0;
+}
+#visit {
+    margin: 0 80% 0 0;
+}
+
+
