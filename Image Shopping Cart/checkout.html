@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--
+Student Info: Name=Sujita Pokharel, ID=14105
+Subject: CS557A_HW4_Spring_2016
+Author: Suju
+Filename: checkOut1.html
+Date and Time: Mar 2, 2016 3:54:07 PM 
+Project Name: CS557_Hw04_Spring2016_images 
+-->
+<html>
+    <head>
+        <title>checkout</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+        <link rel="stylesheet" type="text/css" href="layout.css" media="all and (min-width: 481px)" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="checkout.js"></script>
+    </head>
+    <body onload="fill()">
+        <div>
+        <div id="header">
+            <header>
+                <p>We believe in giving you best appearance to your memories</p>
+            </header>             
+        </div>
+
+        <nav>          
+            <ul id="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="contactUs.html">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <div>
+            <h1 align='center'>Please enter your information here</h1>
+
+        </div>
+
+        <div  align="center">
+
+            <form name="checkoutForm"  id=checkoutForm" action="acknowledgement.html" method="GET" onsubmit="return validate()" >
+
+                <table>
+
+                    <tr><td colspan="2"></td></tr>
+
+                    <tr>
+
+                        <td><label for="fname">First Name</label></td>
+                        <td><input type="text" name="fname" id="fname" ></td>
+
+                    </tr>
+                    <tr><td></td><td><span id="vFname" style="color: red"></span></td></tr>
+                    <tr>
+                        <td><label for="lname">Last Name</label></td>
+                        <td><input type="text" name="lname" id="lname" ></td>
+
+                    </tr>
+                    <tr><td></td><td><span id="vLname" style="color: red"></span></td></tr>
+                    <tr>
+                        <td><label for="dAddress">Delivery Address</label></td>
+                        <td><input type="text" name="dAddress" id="dAddress" ></td>
+
+                    </tr>
+                    <tr><td></td><td><span id="vAdd" style="color: red"></span></td></tr>
+                    <tr>
+                        <td><label for="telphone">Telephone Number</label></td>
+                        <td><input type="text" name="telphone" id="telphone" ></td>
+
+                    </tr>
+                    <tr><td></td><td><span id="vTel" style="color: red"></span></td></tr>
+                    <tr>
+                    <fieldset>
+                        <td>
+                            <label for="radio">Choose Sales Type:</label></td>
+                        <td>
+                            <label for="cash">Cash</label>
+                            <input type="radio" name="sales" value="cash" id="cash" onclick="hide()">
+
+                            <label for="credit">Credit</label>
+                            <input type="radio" name="sales" id="credit" value="credit" onclick="show()" checked="">
+                        </td>
+                    </fieldset>
+                    </tr>
+                    <tr ><td></td><td><span id="vRadio" style="color: red"></span></td></tr>
+                    <tr id="cctrow">
+                        <fieldset id="cct">
+                        <td>
+                            <label>Credit Card Type:</label></td>
+                        <td>
+                            <label for="radio_AX">AX</label>
+                            <input type="radio" name="credittype" id="radio_AX" value="AX" checked="" onclick="radioSelected()" >
+                            <label for="radio_V">V</label>
+                            <input type="radio" name="credittype" id="radio_V" value="V" onclick="radioSelected()" >
+                        </td>
+                        </fieldset>
+                    </tr>
+                    <tr><td></td><td><span id="vCredit" style="color: red"></span></td></tr>
+                    <tr id="CCNid">
+                        <td><label for="CCN">Credit Card Number</label></td>
+                        <td><input type="text" name="ccnumber" id="CCN"  onblur="myCCNCheck()">
+                            <span id="vCCN" style="color: red"></span>
+                        </td>
+
+
+                    </tr>
+                    <tr><td></td><td></td></tr>
+                    <tr id="CCEDid">
+                        <td><label >Credit Card Expiration Date</label></td>
+                        <td><label for="month">Month</label>
+                            <input type="text" name="month" id="month" maxlength="2" onblur="checkMonth()">
+                            <span id="vCCED" style="color: red"></span>
+                            <label for="year">Year</label>
+                            <input type="text" name="year" id="year" maxlength="2" onblur="checkYear()">
+                            <span id="vCCEDy" style="color: red"></span>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td><label for="salesAmt">Sales Amount</label></td>
+                        <td><span id="salesAmt"><script>localStorage.getItem("Total");</script></span></td>
+
+                    </tr>
+                    <tr><td></td><td><span id="vSale" style="color: red"></span></td></tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" name="finalize" id="finalize" value="Finalize"></td>
+                        <td></td>
+                    </tr>   
+                </table>
+            </form> 
+        </div>
+        <br/>
+        <br/>
+        <div id="footer">
+            <p ><b>&copy; Digital Photo Company 2015-2016</b></p>
+        </div>
+        </div>
+    </body>
+</html>
