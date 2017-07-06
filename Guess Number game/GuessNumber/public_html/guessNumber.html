@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--
+Student Info: Name=Sujita Pokharel, ID=14105
+Subject: CS557A_QUIZ01_Spring_2016
+Author: Suju
+Filename: guessNumber.html
+Date and Time: Feb 6, 2016 10:04:26 PM 
+Project Name: GuessNumber 
+-->
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link rel="shortcut icon" href="">
+        <title>Guess a Number</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            
+            .circleDefault{
+                position: absolute;
+                left: 13%;
+                top: 200px;
+                background-color: white;
+                border: 1px solid black;
+                border-radius: 50%;
+                width: 12%;
+                height: 25%;                
+            }
+            .circleBig{
+                position: absolute;
+                left: 13%;
+                top: 200px;
+                background-color: red;
+                border: 1px solid black;
+                border-radius: 50%;
+                width: 25%;
+                height: 45%;                
+            }
+            .circleSmall{
+                position: absolute;
+                left: 13%;
+                top: 200px;
+                background-color: Yellow;
+                border: 1px solid black;
+                border-radius: 50%;
+                width: 10%;
+                height: 18%;                
+            }
+            .circleCorrect{
+                position: absolute;
+                left: 13%;
+                top: 200px;
+                background-color: green;
+                border: 1px solid black;
+                border-radius: 50%;
+                width: 12%;
+                height: 25%;                
+            }
+            .circleTooManytry{
+                position: absolute;
+                left: 13%;
+                top: 200px;
+                background-color: black;
+                border: 1px solid black;
+                border-radius: 50%;
+                width: 12%;
+                height: 25%;                
+            }
+        </style>
+        <script>
+            //create a random number
+            var randomNum;
+            var numOfAttempts = 0;
+            
+            window.onload =function (){
+               randomNum = Math.round(Math.random()*100);
+               console.log(randomNum);
+               numOfAttempts = 0;
+            }
+            
+            function compareGuessedNum(){
+               var firstDiv = document.getElementById("divId1");
+               var thirdDiv = document.getElementById("divId3").value;
+                              
+                numOfAttempts++;
+                if(numOfAttempts>9){
+                    console.log("the number of attempts are:" + numOfAttempts);
+                    alert("too many try");
+                    console.log("exit");
+                    document.getElementById("divId2").className="circleTooManytry";
+                    firstDiv.innerHTML="Sorry Game Over";
+                   
+                }
+                
+                console.log("no of ... "+numOfAttempts);
+                if(thirdDiv > randomNum){
+                    console.log("big");
+                    firstDiv.innerHTML="# of Attempt: "+numOfAttempts ;
+                    document.getElementById("divId2").className ="circleBig";
+                    
+                }
+                if(thirdDiv < randomNum){
+                    console.log("small");
+                    firstDiv.innerHTML="# of Attempt:  "+numOfAttempts;
+                    document.getElementById("divId2").className ="circleSmall";
+                
+                }
+                if(thirdDiv == randomNum){
+                    console.log("equal");
+                    firstDiv.innerHTML="# of Attempt:  "+numOfAttempts;
+                    document.getElementById("divId2").className ="circleCorrect";
+                
+                }    
+                
+            };                
+            
+        </script>
+    </head>
+    <body>
+        Maximum number of try is 10 <div id="divId0"></div>
+        <br/>
+        <span id="divId1">
+            # of Attempt 0
+        </span>
+        <div id ="divId2" class="circleDefault"></div>
+        <div id="circleDefault"> </div>
+       Enter number here: <input id="divId3" value>
+        <input type="button" name="submit" onclick="compareGuessedNum()" value="Submit">
+        
+        </body>
+</html>
+
+
+
