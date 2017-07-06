@@ -1,0 +1,19 @@
+doctype html
+//html(ng-app="#{app}")
+html(ng-app="userApp" ng-controller="SignUpController")
+  head
+    title= signup
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+    script(src='https://code.angularjs.org/1.5.3/angular.min.js')
+    script(src='/javascripts/angular.min.js')
+    script(src='/javascripts/angular-route.min.js')
+    script(src='/javascripts/signup.js')
+  body
+    header
+ 
+    .container
+      .main-content
+        block content
+      
+    footer
+      p (C) Sujita
