@@ -1,0 +1,15 @@
+//- 
+    Student Info: Name=Sujita Pokharel, ID=14105
+    Subject: CS557A_HW5_Spring_2016_Quiz03
+    Author: Suju
+    Filename: error.jade
+    Date and Time: Mar 26, 2016 9:17:36 PM 
+    Project Name: CS557AQuiz3_14105 
+     
+
+extends layout
+
+block content
+  h1= message
+  h2= error.status
+  pre #{error.stack}

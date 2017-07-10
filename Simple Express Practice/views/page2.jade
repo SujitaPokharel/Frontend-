@@ -1,0 +1,31 @@
+//- 
+    Student Info: Name=Sujita Pokharel, ID=14105
+    Subject: CS557A_HW5_Spring_2016_Quiz03
+    Author: Suju
+    Filename: page2.jade
+    Date and Time: Mar 26, 2016 9:19:13 PM 
+    Project Name: CS557AQuiz3_14105 
+     
+
+doctype html 
+html  
+    head    
+        title= lastname   
+        link(rel='stylesheet', href='/stylesheets/style.css')  
+    body    
+        h1= lastname    
+        hr    
+        form(method='post', action='/page2')      
+            label Last Name      
+            br      
+            input(type='text', name='quantity')      
+            br                  
+            br    
+            button(type='reset', onclick="move()") prev
+            input(type='submit', value='next')
+        script.
+            function move() {
+                 window.location.href = '/'
+             }
+        hr
+        

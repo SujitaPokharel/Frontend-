@@ -1,0 +1,29 @@
+//- 
+    Student Info: Name=Sujita Pokharel, ID=14105
+    Subject: CS557A_HW5_Spring_2016_Quiz03
+    Author: Suju
+    Filename: final.jade
+    Date and Time: Mar 26, 2016 9:18:02 PM 
+    Project Name: CS557AQuiz3_14105 
+     
+
+doctype html
+html
+    head
+        title= title              
+    body    
+        header            
+        section            
+                thead
+                tbody
+                    each item in cart                        
+                       tr
+                            form(method='post', action='/final') 
+                                td 
+                                    input(type='text' name='itemname' value='#{item.itemname}')
+                                td 
+                                    input(type='text' name='quantity' value='#{item.quantity}')                               
+                                
+                            
+            
+           
