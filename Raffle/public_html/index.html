@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--
+Student Info: Name=Sujita Pokharel, ID=14105
+Subject: CS557A_HW3_Spring_2016
+Author: Suju
+Filename: newhtml.html
+Date and Time: Feb 20, 2016 8:30:32 PM 
+Project Name: CS557A_QUIZ02_Spring2016 
+-->
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Raffle</title>
+
+    <script>
+        function handleDragStart(e) {
+            e.dataTransfer.setData("text", this.id);
+        }
+        function handleDragEnterLeave(e) {
+            if (e.type == "dragenter") {
+                this.className = "drag-enter";
+            } else {
+                this.className = "";
+            }
+        }
+        function handleOverDrop(e) {
+            e.preventDefault();
+            if (e.type != "drop") {
+                return;
+            }
+            var draggedId = e.dataTransfer.getData("text");
+            var draggedEl = document.getElementById(draggedId);
+            if (draggedEl.parentNode == this) {
+                return;
+            }
+            if (this.dataset.id !== draggedId) {
+                alert('Wrong Value');
+                return;
+            }
+
+            draggedEl.parentNode.removeChild(draggedEl);
+            this.appendChild(draggedEl);
+            this.className = "";
+        }
+
+        function bindDragEvent() {
+            var draggable = document.querySelectorAll("[draggable]");
+            var targets = document.querySelectorAll("[data-drop-target]");
+            for (var i = 0; i < draggable.length; i++) {
+                draggable[i].addEventListener("dragstart", handleDragStart);
+            }
+            for (i = 0; i < targets.length; i++) {
+                targets[i].addEventListener("dragover", handleOverDrop);
+                targets[i].addEventListener("drop", handleOverDrop);
+                targets[i].addEventListener("dragenter", handleDragEnterLeave);
+                targets[i].addEventListener("dragleave", handleDragEnterLeave);
+            }
+        }
+
+
+        var words = ['HAHA','QUIT','FAIL','HARD','QUIZ'];
+
+        function getRandomWord() {
+            return words[Math.floor(Math.random() * words.length)];
+        }
+
+        function BuildDiv(word, showValue) {
+            var div = document.createElement('div');
+            div.setAttribute('data-drop-target', true);
+            div.setAttribute('data-id', word);
+            if (showValue) {
+                div.innerHTML = '<div draggable="true" class="draggable" id="' + word + '">' + word + '</div>';
+            }
+            return div
+        }
+
+        function BuildDivs() {
+            var source = document.getElementById("source");
+            var target = document.getElementById("target");
+            var word = getRandomWord();
+            var shuffleWord = shuffle(word);
+
+            source.innerHTML = "";
+            target.innerHTML = "";
+
+            for (var i = 0; i < shuffleWord.length; i++) {
+                source.appendChild(BuildDiv(shuffleWord[i], true));
+            }
+
+            for (i = 0; i < word.length; i++) {
+                target.appendChild(BuildDiv(word[i]));
+            }
+        }
+
+        function shuffle(word) {
+            var array = word.split("");
+            var i = word.length;
+
+            while (--i) {
+                var j = Math.floor(Math.random() * (i + 1 ));
+                var a = array[i];
+                var b = array[j];
+                array[i] = b;
+                array[j] = a;
+            }
+            return array;
+        }
+
+
+        function startGame() {
+            document.getElementById('game').style.display = 'block';
+            BuildDivs(words);
+            bindDragEvent();
+            setTimeout(checkGame, 30000);
+        }
+
+        function checkGame() {
+            if (document.querySelectorAll('#target .draggable').length < 4) {
+                alert("Game End");
+            }
+            
+        }
+
+
+        window.onload = function () {
+            var start = document.getElementById('start');
+            start.addEventListener('click', startGame);
+
+        };
+
+
+    </script>
+    <style>
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .panel {
+            height: 220px;
+            width: 90%;
+            margin: 2px;
+            background-color: gainsboro;
+            float: left;
+        }
+
+        [data-drop-target] {
+            height: 200px;
+            width: 23%;
+            margin: 5px;
+            background-color: lightblue;
+            float: left;
+        }
+
+        .draggable {
+            height: 192px;
+            width: 94%;
+            padding: 10px;
+            font-size: 50px;
+            text-align: center;
+        }
+
+        .drag-enter {
+            border: 2px dashed #000;
+        }
+
+        #start {
+            padding: 10px 20px;
+            font-size: 20px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Moving Pictures Around</h1>
+</header>
+<button id="start">Start</button>
+<section id="game" style="display: block;">
+    <div class="panel" id="target">
+        <div data-drop-target="true" data-id="D"></div>
+        <div data-drop-target="true" data-id="A"></div>
+        <div data-drop-target="true" data-id="X"></div>
+        <div data-drop-target="true" data-id="Y"></div>
+            
+    </div>
+    <div class="panel" id="source">
+        <div data-drop-target="true" data-id="Y">
+            <div draggable="true" class="draggable" id="Y">Y</div>                
+        </div>
+        <div data-drop-target="true" data-id="X">
+            <div draggable="true" class="draggable" id="X">X</div>                
+        </div>
+        <div data-drop-target="true" data-id="A">
+            <div draggable="true" class="draggable" id="A">A</div>                
+        </div>
+        <div data-drop-target="true" data-id="D">
+            <div draggable="true" class="draggable" id="D">D</div>                
+        </div>            
+    </div>  
+    
+</section>
+</body>    
+</html> 
