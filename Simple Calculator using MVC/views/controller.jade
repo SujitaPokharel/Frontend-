@@ -1,0 +1,32 @@
+//- 
+    Student Info: Name=Sujita Pokharel, ID=14105
+    Subject: CS557A_Quiz4_Spring_2016
+    Author: Suju
+    Filename: controller.jade
+    Date and Time: Apr 10, 2016 09:03:41 PM 
+    Project Name: CS557A_Quiz04 
+
+doctype html 
+extends layout
+
+block content
+
+        h1 Simple Calculator
+        div
+        div
+            b Num1: 
+            input(type='number' ng-model="num1")
+        br
+        div
+            b Num2: 
+            input(type='number' ng-model="num2")
+        br
+        div            
+            input(type='button' value='Add' ng-click ='add()') 
+            br
+            br
+            input(type='button' value='Subtract' ng-click ='subtract()')      
+        br
+        b Result: {{result}}
+        script(src='/javascripts/controller.js')
+

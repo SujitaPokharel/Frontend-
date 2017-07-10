@@ -1,0 +1,19 @@
+doctype html
+
+html(ng-app="simpleCalc" ng-controller="calcController")
+  head
+    title= calculator
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.js")
+    script(src='/javascripts/angular.min.js')
+    script(src='/javascripts/angular-route.min.js')
+    script(type="text/javascript")
+    script(src='/javascripts/controller.js')
+  body
+    header
+ 
+    .container
+      .main-content
+        block content
+      
+    
